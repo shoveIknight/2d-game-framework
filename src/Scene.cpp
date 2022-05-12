@@ -1,28 +1,28 @@
 #include "Scene.h"
 
 
-void Scene::newStaticEntity(int secondX, int secondY)
+void Scene::newStaticEntity(Point2f secondPoint)
 {
 	Entity* new_entity = new Entity;
 	int width, height, x, y;
-	if (getTopLeftX() > secondX)
+	if (getTopLeftX() > secondPoint.x)
 	{
-		width = getTopLeftX() - secondX;
-		x = secondX;
+		width = getTopLeftX() - secondPoint.x;
+		x = secondPoint.x;
 	}
 	else
 	{
-		width = secondX - getTopLeftX();
+		width = secondPoint.x - getTopLeftX();
 		x = getTopLeftX();
 	}
-	if (getTopLeftY() > secondY)
+	if (getTopLeftY() > secondPoint.y)
 	{
-		height = getTopLeftY() - secondY;
-		y = secondY;
+		height = getTopLeftY() - secondPoint.y;
+		y = secondPoint.y;
 	}
 	else
 	{
-		height = secondY - getTopLeftY();
+		height = secondPoint.y - getTopLeftY();
 		y = getTopLeftY();
 	}
 	new_entity->Init(x, y, width, height, 1);

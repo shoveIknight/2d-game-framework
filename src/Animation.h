@@ -23,10 +23,10 @@ public:
 	/**
 	* Frame constructor for an animation.
 	*
-	* \param path Absoulte or relative path of the frame.
-	* \param renderer The renderer where you will render the animation.
-	* \param rightGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face right.
-	* \param leftGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face left.
+	* @param path Absoulte or relative path of the frame.
+	* @param renderer The renderer where you will render the animation.
+	* @param rightGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face right.
+	* @param leftGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face left.
 	*/
 	Animation(const std::string& path, SDL_Renderer* const& renderer, float rightGap, float leftGap);
 
@@ -42,25 +42,25 @@ public:
 	/**
 	* Frame initilazier for an animation.
 	*
-	* \param path Absoulte or relative path of the frame.
-	* \param renderer The renderer where you will render the animation.
-	* \param rightGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face right.
-	* \param leftGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face left.
+	* @param path Absoulte or relative path of the frame.
+	* @param renderer The renderer where you will render the animation.
+	* @param rightGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face right.
+	* @param leftGap This is the gap between hitbox's x coordinate and the texture's x coordinate you want when character face left.
 	*/
 	void setFrame(const std::string& path, SDL_Renderer* const& renderer, float rightGap, float leftGap);//get rid of this asap
 
 	/**
 	* Sets the animation which will come after.
 	*
-	* \param next Pointer to animation object of the next frame.
+	* @param next Pointer to animation object of the next frame.
 	*/
 	void setNextAnimation(Animation* const &next);
 
 
 	/**
 	*
-	* \param facing The direction currently facing towards.
-	* \return The gap there should be between hitbox and the animation frame in floats.
+	* @param facing The direction currently facing towards.
+	* @return The gap there should be between hitbox and the animation frame in floats.
 	*/
 	float getHitboxAndFrameGap(std::string const& facing) const;
 

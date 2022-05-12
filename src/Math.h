@@ -72,10 +72,32 @@ public:
 
 namespace Math
 {
+	/**
+	 * @brief Find the closest point on rect to the point.
+	 * 
+	 * @return Returns the closest point to point on the rect as Point2f 
+	 */
 	Point2f closestPointToRect(Point2f point, Rectangle rect);
 	inline bool operator==(const Point2f& lhs, const Point2f& rhs) { return lhs.x == rhs.x && lhs.y == rhs.y; };
 	inline Point2f operator-(const Point2f& lhs, const Point2f& rhs) { return { lhs.x - rhs.x, lhs.y - rhs.y }; };
+	/**
+	 * @brief Finds the corresponding coordinate for given x value on given circle.
+	 * 
+	 * @param circle The circle you want to find corresponding value.
+	 * @param x The value you want to find corresnpondance.
+	 * @return Corresponding coordinate on circle as float 
+	 */
 	float getPointOnCircle(const Circle& circle, float x);
+
 	Point2f lineCircleIntersect(float mX, float mY, Point2f point, Circle circ);
+
+	/**
+	 * @brief Find projection of a point on a given line.
+	 * 
+	 * @param project The point you want to project on the line.
+	 * @param m Slope of the line
+	 * @param point A point on the line.
+	 * @return The projected point on the line as Point2f. 
+	 */
 	Point2f projectPointOntoLine(Point2f project, float m, Point2f point);
 }

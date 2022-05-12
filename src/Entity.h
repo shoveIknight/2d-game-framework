@@ -33,7 +33,7 @@ public:
 
 	/**
 	* Moves the Entity with its current velocity.
-	* \param timeStep time step between frames.
+	* @param timeStep time step between frames.
 	*/
 	void move(float timeStep);
 
@@ -42,28 +42,68 @@ public:
 
 	/**
 	* Initialize the Entity object with rectangular hitbox.
-	* \param x The x position of the object when it's first created.
-	* \param y The y position of the object when it's first created.
-	* \param w Hitbox width of the Entity object.
-	* \param h Hitbox heigth of the Entity object.
-	* \param is_static_body False if object is not static,true otherwise.
+	* @param x The x position of the object when it's first created.
+	* @param y The y position of the object when it's first created.
+	* @param w Hitbox width of the Entity object.
+	* @param h Hitbox heigth of the Entity object.
+	* @param is_static_body False if object is not static,true otherwise.
 	*/
 	void Init(float x = 3700, float y = 45, float w =30, float h=100, bool is_static_body = 0);
 
+	/**
+	 * Initialize the Entity object with circular hitbox.
+	 * 
+	 * @param x The x coordiante of top left corner of the smallest square that contains given circular hitbox.
+	 * @param y The y coordiante of top left corner of the smallest square that contains given circular hitbox.
+	 * @param radius The radius of circular hitbox.
+	 * @param is_static_body False if object is not static,true otherwise.
+	 */
 	void InitCircle(float x, float y, float radius, bool is_static_body);
+
+	/**
+	 * @brief Set the velocity of the object in x axis.
+	 * 
+	 * @param velocity The velocity to set.
+	 */
 	void setVelocityX(float velocity);
+
+	
+	/**
+	 * @brief Set the velocity of the object in y axis.
+	 * 
+	 * @param velocity The velocity to set.
+	 */
 	void setVelocityY(float velocity);
+
+	/**
+	 * @brief Returns the area which entity damages when attacks.
+	 * 
+	 * @return Rectangle object of the attacked area.
+	 */
 	Rectangle attack();
+
+
 
 	void loadAnimations(SDL_Renderer* const &renderer);
 
 	/**
-	* 
+	* Sets the given type of animation with given Animation object.
+	* @param animation The animation object that you want to set.
+	* @param animType The animation type of the entity object you want to set.
 	*/
 	void setAnimation( Animation* const& animation, AnimType animType);
 
 	void resetAnimation();
+
+	/**
+	 * @brief Entity starts to fall.
+	 * 
+	 */
 	void startsToFall();
+	/**
+	 * @brief Sets entity on floor.
+	 * 
+	 */
 	void itIsOnFloor();
 	void rightIsWall();
 	void leftIsWall();
@@ -80,17 +120,43 @@ public:
 	void startsToJump();
 	void collidedFromTop();
 	void setType(EntityType type);
+	//set currentFrame with next frame of animation 
 	void advanceAnimation(float timeStep);
+
+	//Keep y velocioty constant until given distance is taken.
 	void lockMovementY(int lockedDistance);
+	//Keep y velocioty constant until given distance is taken.
 	void lockMovementX(int lockedDistance);
+
+	//unlocks the y veloctiy lock.
 	void unlockMovementY();
+
+	///unlocks the x veloctiy lock.
 	void unlockMovementX();
+
 	void setRideableWallTrue();
 	void setRideableWallFalse();
+
+	//sets currentFrame with deathAnimation
 	void deathEvent();
-	void getHit(float xVelocity, float yVelocity, float xLock, float yLock, float timeStep);
+	/**
+	 * @brief Called when entity got hit.
+	 * 
+	 * @param xVelocity The x velocity of response to hit.
+	 * @param yVelocity  The x velocity of response to hit.
+	 * @param xLock The distance which entity will unable to move in x-axis until the distance is taken.
+	 * @param yLock The distance which entity will unable to move in y-axis until the distance is taken.
+	 * @param timeStep frame time
+	 */
+	void gotHit(float xVelocity, float yVelocity, float xLock, float yLock, float timeStep);
+
+	//teleport the entity to given point
 	void setNewPosition(const Point2f rect);
+
+	//the Entity got pushed in x axis by another object.
 	void getPushedX(float xVelocity);
+	
+	//the Entity got pushed in y axis by another object.
 	void getPushedY(float yVelocity);
 
 	//main movement 

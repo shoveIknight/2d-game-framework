@@ -21,7 +21,11 @@ struct ParallaxLayers
 class Scene : public SceneEditor, public Camera
 {
 public:
-	void newStaticEntity(int, int);
+	/**
+	 * @brief Adds new rectangular static object to the scene represented by first recorded point and two.
+	 * 
+	 */
+	void newStaticEntity(Point2f secondPoint);
 	void newCircleEntity(int secondX, int secondY);
 	void addCollisionBody(Entity*);
 	void addEnemy(Enemy*);

@@ -316,13 +316,17 @@ void Entity::setAnimation(Animation* const &animation, AnimType animType)
 
 void Entity::startsToFall()
 {
-	if (entityType == EntityType::Enemy)
-		;// __debugbreak();
-	falling = true;
-	gravityBool = true;
-	onFloor = false;
-	gonnaBeOnFloor = false;
-	jumpCondition = false;
+	if (entityType == EntityType::Player 
+	|| entityType == EntityType::Enemy 
+	|| entityType == EntityType::Friendly)
+	{
+		falling = true;
+		gravityBool = true;
+		onFloor = false;
+		gonnaBeOnFloor = false;
+		jumpCondition = false;
+	}
+
 }
 
 void Entity::startsToJump()
@@ -1244,7 +1248,7 @@ void Entity::deathEvent()
 	currentFrame = deathAnimation;
 }
 
-void Entity::getHit(float xVelocity, float yVelocity, float xLock, float yLock, float timeStep)
+void Entity::gotHit(float xVelocity, float yVelocity, float xLock, float yLock, float timeStep)
 {
 	if (xVelocity != 0)
 	{

@@ -15,9 +15,9 @@ public:
 	/**
 	* Updates the position of camera.
 	* 
-	* \param screenWidth width of SDL_Window.
-	* \param screenHeight height of SDL_Window.
-	* \param timeStep time step between frames.
+	* @param screenWidth width of SDL_Window.
+	* @param screenHeight height of SDL_Window.
+	* @param timeStep time step between frames.
 	*/
 	void updateCamera(int screenWidth, int screenHeight, float timeStep);
 
@@ -40,7 +40,7 @@ public:
 
 	/**
 	* Sets the current focus of camera to the newFocus
-	* \param newFocus Entity object pointer of new camera focus.
+	* @param newFocus Entity object pointer of new camera focus.
 	*/
 	void setNewFocusedEntity(const Entity* newFocus);
 
