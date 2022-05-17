@@ -11,10 +11,10 @@ public:
 	float getSceneScale() const;
 	bool isEditorActive() const;
 	bool isFirstPointRecorded() const;
-	int getTopLeftX() const;
-	int getTopLeftY() const;
+	int getRecordedPointX() const;
+	int getRecordedPointY() const;
 
-	void setFirstPoint(int, int);
+	void recordPoint(int x, int y);
 	Rectangle scaleRect(Rectangle);
 	void resetFirstPoint();
 	bool isPointerOnCollisionBody(int, int, std::vector<Entity*>::iterator, std::vector<Entity*>::iterator);

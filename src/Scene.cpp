@@ -5,25 +5,25 @@ void Scene::newStaticEntity(Point2f secondPoint)
 {
 	Entity* new_entity = new Entity;
 	int width, height, x, y;
-	if (getTopLeftX() > secondPoint.x)
+	if (getRecordedPointX() > secondPoint.x)
 	{
-		width = getTopLeftX() - secondPoint.x;
+		width = getRecordedPointX() - secondPoint.x;
 		x = secondPoint.x;
 	}
 	else
 	{
-		width = secondPoint.x - getTopLeftX();
-		x = getTopLeftX();
+		width = secondPoint.x - getRecordedPointX();
+		x = getRecordedPointX();
 	}
-	if (getTopLeftY() > secondPoint.y)
+	if (getRecordedPointY() > secondPoint.y)
 	{
-		height = getTopLeftY() - secondPoint.y;
+		height = getRecordedPointY() - secondPoint.y;
 		y = secondPoint.y;
 	}
 	else
 	{
-		height = secondPoint.y - getTopLeftY();
-		y = getTopLeftY();
+		height = secondPoint.y - getRecordedPointY();
+		y = getRecordedPointY();
 	}
 	new_entity->Init(x, y, width, height, 1);
 	new_entity->setType(EntityType::Static);
@@ -36,25 +36,25 @@ void Scene::newCircleEntity(int secondX, int secondY)
 {
 	Entity* new_entity = new Entity;
 	int width, height, x, y;
-	if (getTopLeftX() > secondX)
+	if (getRecordedPointX() > secondX)
 	{
-		width = getTopLeftX() - secondX;
+		width = getRecordedPointX() - secondX;
 		x = secondX;
 	}
 	else
 	{
-		width = secondX - getTopLeftX();
-		x = getTopLeftX();
+		width = secondX - getRecordedPointX();
+		x = getRecordedPointX();
 	}
-	if (getTopLeftY() > secondY)
+	if (getRecordedPointY() > secondY)
 	{
-		height = getTopLeftY() - secondY;
+		height = getRecordedPointY() - secondY;
 		y = secondY;
 	}
 	else
 	{
-		height = secondY - getTopLeftY();
-		y = getTopLeftY();
+		height = secondY - getRecordedPointY();
+		y = getRecordedPointY();
 	}
 	new_entity->Init(x, y, width, height, 1);
 	new_entity->setType(EntityType::Static);

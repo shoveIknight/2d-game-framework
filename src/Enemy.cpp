@@ -66,11 +66,11 @@ void Enemy::gotHit(int damage,const  std::string& direction, float timeStep)
 	}
 	if (direction == "left")
 	{
-		main_object->getHit(5, 0, 20, 0, timeStep);
+		main_object->gotHit(5, 0, 20, 0, timeStep);
 	}
 	else if (direction == "right")
 	{
-		main_object->getHit(-5, 0, 20, 0, timeStep);
+		main_object->gotHit(-5, 0, 20, 0, timeStep);
 	}
 	
 

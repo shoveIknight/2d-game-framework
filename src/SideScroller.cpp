@@ -1073,8 +1073,8 @@ void SideScroller::draw()
 		SDL_GetMouseState(&secondX, &secondY);
 		secondX += currentScene->getCamX();
 		secondY += currentScene->getCamY();
-		int firstX = (currentScene->getTopLeftX() - currentScene->getCamX()) / currentScene->getSceneScale() + currentScene->getCamX();
-		int firstY = (currentScene->getTopLeftY() - currentScene->getCamY()) / currentScene->getSceneScale() + currentScene->getCamY();
+		int firstX = (currentScene->getRecordedPointX() - currentScene->getCamX()) / currentScene->getSceneScale() + currentScene->getCamX();
+		int firstY = (currentScene->getRecordedPointY() - currentScene->getCamY()) / currentScene->getSceneScale() + currentScene->getCamY();
 		int width= 0, height = 0, x = 0, y = 0;
 		if (firstX > secondX)
 		{
@@ -1493,7 +1493,7 @@ void SideScroller::newStaticEntity(int x, int y)
 
 	if (currentScene->isFirstPointRecorded())
 	{
-		currentScene->newStaticEntity(x * currentScene->getSceneScale() + currentScene->getCamX() , y * currentScene->getSceneScale() + currentScene->getCamY());
+		currentScene->newStaticEntity( { x * currentScene->getSceneScale() + currentScene->getCamX() , y * currentScene->getSceneScale() + currentScene->getCamY() } );
 	}
 	else
 	{
@@ -1502,7 +1502,7 @@ void SideScroller::newStaticEntity(int x, int y)
 		{
 			return;
 		}
-		currentScene->setFirstPoint(x * currentScene->getSceneScale() + currentScene->getCamX(), y * currentScene->getSceneScale() + currentScene->getCamY());
+		currentScene->recordPoint(x * currentScene->getSceneScale() + currentScene->getCamX(), y * currentScene->getSceneScale() + currentScene->getCamY());
 	}
 }
 

@@ -16,6 +16,8 @@
 #include "SceneEditor.h"
 #include "Animation.h"
 #include "Tree.h"
+#include "Dependencies/SDL2-2.0.16/include/SDL.h"
+
 
 class SideScroller
 {

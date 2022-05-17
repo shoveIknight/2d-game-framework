@@ -67,17 +67,17 @@ bool SceneEditor::isFirstPointRecorded() const
     return firstPointRecorded;
 }
 
-int SceneEditor::getTopLeftX() const
+int SceneEditor::getRecordedPointX() const
 {
     return firstX;
 }
 
-int SceneEditor::getTopLeftY() const
+int SceneEditor::getRecordedPointY() const
 {
     return firstY;
 }
 
-void SceneEditor::setFirstPoint(int x, int y)
+void SceneEditor::recordPoint(int x, int y)
 {
     firstX = x;
     firstY = y;
